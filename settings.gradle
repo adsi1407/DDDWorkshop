@@ -1,2 +1,6 @@
-include ':app'
+include ':application'
+include ':infrastructure:deviceHardware'
+include ':infrastructure:dataAccess'
+include ':domain'
+include ':presentation'
 rootProject.name = "DDD Workshop"
