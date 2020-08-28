@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PersonRepositoryImpl implements PersonRepository {
 
-    public static final String BASE_URL = "https://dddworkshop.free.beeceptor.com/";
+    public static final String BASE_URL = "https://dddworkshop1.free.beeceptor.com/";
     private Retrofit retrofit;
 
     @Inject
@@ -33,13 +33,16 @@ public class PersonRepositoryImpl implements PersonRepository {
     public boolean personExists(String id) {
 
         PersonService personService = retrofit.create(PersonService.class);
-        Call<Boolean> call = personService.personExists(id);
-        boolean personExists;
+        Call<Boolean> call = personService.personExists();
+        boolean personExists = false;
 
         try {
 
             Response<Boolean> response = call.execute();
-            personExists = response.body();
+
+            if (response.body() != null) {
+                personExists = response.body();
+            }
         }
         catch(IOException ex) {
             throw new TechnicalException(ex);
@@ -54,11 +57,11 @@ public class PersonRepositoryImpl implements PersonRepository {
         PersonDto personDto = new PersonTranslator().fromDomainToDto(person);
 
         PersonService personService = retrofit.create(PersonService.class);
-        Call call = personService.savePerson(personDto);
+        Call<String> call = personService.savePerson();
 
         try {
 
-            Response response = call.execute();
+            Response<String> response = call.execute();
         }
         catch (IOException ex) {
             throw new TechnicalException(ex);

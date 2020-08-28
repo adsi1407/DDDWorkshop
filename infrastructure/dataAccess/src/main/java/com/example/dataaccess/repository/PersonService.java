@@ -10,8 +10,10 @@ import retrofit2.http.POST;
 public interface PersonService {
 
     @GET("ExistsPerson")
-    Call<Boolean> personExists(String id);
+    Call<Boolean> personExists();
 
     @POST("SavePerson")
-    Call savePerson(@Body PersonDto personDto);
+    Call<String> savePerson();
 }
+
+

@@ -14,7 +14,11 @@ public class PersonTranslator {
         PersonDto personDto = new PersonDto();
         personDto.setId(person.getId());
         personDto.setName(person.getName());
-        personDto.setBirthday(person.getBirthday().toString());
+
+        if (person.getBirthday() != null) {
+            personDto.setBirthday(person.getBirthday().toString());
+        }
+
         personDto.setPhone(person.getPhone());
         personDto.setEmail(person.getEmail());
 
@@ -32,6 +36,7 @@ public class PersonTranslator {
                 Role role = person.getRoles().get(i);
                 roles.add(role.getId() + "-" + role.getName());
             }
+            personDto.setRoles(roles);
         }
 
         if (person.getUserInfo() != null) {
