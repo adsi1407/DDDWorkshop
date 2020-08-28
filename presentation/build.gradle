@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion 30
@@ -39,5 +40,8 @@ dependencies {
     implementation project(":infrastructure:deviceHardware")
     implementation project(":application")
     implementation project(":domain")
+
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+    annotationProcessor "com.google.dagger:hilt-android-compiler:2.28-alpha"
 
 }
