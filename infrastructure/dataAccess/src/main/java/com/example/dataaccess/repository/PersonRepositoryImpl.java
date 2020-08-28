@@ -8,6 +8,8 @@ import com.example.domain.repository.PersonRepository;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -18,6 +20,7 @@ public class PersonRepositoryImpl implements PersonRepository {
     public static final String BASE_URL = "https://dddworkshop.free.beeceptor.com/";
     private Retrofit retrofit;
 
+    @Inject
     public PersonRepositoryImpl() {
 
         retrofit = new Retrofit.Builder()
