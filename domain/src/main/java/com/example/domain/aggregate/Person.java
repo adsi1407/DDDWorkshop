@@ -1,5 +1,8 @@
-package com.example.domain.entity;
+package com.example.domain.aggregate;
 
+import com.example.domain.valueobject.Address;
+import com.example.domain.entity.Role;
+import com.example.domain.entity.User;
 import com.example.domain.exception.EmptyRolesException;
 import com.example.domain.exception.WrongEmailException;
 

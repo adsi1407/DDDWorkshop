@@ -1,6 +1,6 @@
 package com.example.domain.repository;
 
-import com.example.domain.entity.Person;
+import com.example.domain.aggregate.Person;
 
 public interface PersonRepository {
 
