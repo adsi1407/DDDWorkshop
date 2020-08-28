@@ -4,8 +4,13 @@ public class Address {
 
     private String address;
     private String city;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
+
+    public Address(String address, String city) {
+        this.address = address;
+        this.city = city;
+    }
 
     public String getAddress() {
         return address;
@@ -23,19 +28,19 @@ public class Address {
         this.city = city;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 }
