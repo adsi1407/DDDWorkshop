@@ -26,14 +26,13 @@ public class UserTest {
 
         //Arrange
         String userId= "user01";
-        String password = null;
         User user;
         String expectedMessage = "El password no tiene el formato correcto.";
 
         //Act
         try {
 
-            user = new User(userId, password);
+            user = new User(userId, null);
             Assert.fail();
         }
         catch (WrongPasswordException ex) {

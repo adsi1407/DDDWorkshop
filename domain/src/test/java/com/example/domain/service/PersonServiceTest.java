@@ -2,7 +2,6 @@ package com.example.domain.service;
 
 import com.example.domain.aggregate.Person;
 import com.example.domain.entity.Role;
-import com.example.domain.exception.EmptyRolesException;
 import com.example.domain.exception.PersonAlreadyExistsException;
 import com.example.domain.repository.PersonRepository;
 
