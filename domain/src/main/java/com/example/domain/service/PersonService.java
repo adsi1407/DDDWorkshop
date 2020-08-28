@@ -1,6 +1,7 @@
 package com.example.domain.service;
 
 import com.example.domain.entity.Person;
+import com.example.domain.exception.PersonAlreadyExistsException;
 import com.example.domain.repository.PersonRepository;
 
 public class PersonService {
@@ -14,7 +15,7 @@ public class PersonService {
     public void savePerson(Person person) {
 
         if (personRepository.personExists(person.getId())) {
-            //throws exception
+            throw new PersonAlreadyExistsException();
         }
         else {
             personRepository.savePerson(person);

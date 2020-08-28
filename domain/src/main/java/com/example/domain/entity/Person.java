@@ -1,5 +1,8 @@
 package com.example.domain.entity;
 
+import com.example.domain.exception.EmptyRolesException;
+import com.example.domain.exception.WrongEmailException;
+
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -27,7 +30,7 @@ public class Person {
             this.roles = roles;
         }
         else {
-            //throws exception
+            throw new EmptyRolesException();
         }
     }
 
@@ -73,7 +76,7 @@ public class Person {
             this.email = email;
         }
         else {
-            //throws exception
+            throw new WrongEmailException();
         }
     }
 

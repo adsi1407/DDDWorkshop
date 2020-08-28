@@ -1,5 +1,7 @@
 package com.example.domain.entity;
 
+import com.example.domain.exception.WrongPasswordException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,11 +14,11 @@ public class User {
     public User(String id, String password) {
         this.id = id;
 
-        if (validatePasswordFormat(password)) {
+        if (password != null && validatePasswordFormat(password)) {
             this.password = password;
         }
         else {
-            //throws exception
+            throw new WrongPasswordException();
         }
     }
 
