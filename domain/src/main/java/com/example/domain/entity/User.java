@@ -1,9 +1,24 @@
 package com.example.domain.entity;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class User {
 
+    private static final String PASSWORD_PATTERN_STRING = "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,}$";
     private String id;
     private String password;
+
+    public User(String id, String password) {
+        this.id = id;
+
+        if (validatePasswordFormat(password)) {
+            this.password = password;
+        }
+        else {
+            //throws exception
+        }
+    }
 
     public String getId() {
         return id;
@@ -19,5 +34,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    private boolean validatePasswordFormat(String password) {
+
+        Pattern pattern = Pattern.compile(PASSWORD_PATTERN_STRING);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
     }
 }
