@@ -8,17 +8,17 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.application.service.PersonApplicationService;
 import com.example.domain.aggregate.Person;
-import com.example.domain.service.PersonService;
 
 public class PersonViewModel extends ViewModel {
 
     private MutableLiveData<Boolean> personSaved;
 
-    private final PersonService personService;
+    private final PersonApplicationService personService;
 
     @ViewModelInject
-    public PersonViewModel(PersonService personService) {
+    public PersonViewModel(PersonApplicationService personService) {
         this.personService = personService;
     }
 
