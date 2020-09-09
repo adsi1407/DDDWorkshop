@@ -1,6 +1,7 @@
-package com.example.domain.entity;
+package com.example.domain.aggregate;
 
-import com.example.domain.valueobject.ContactInformation;
+import com.example.domain.entity.ContactInformation;
+import com.example.domain.entity.Role;
 
 import java.util.Date;
 
@@ -12,6 +13,19 @@ public class Person {
     private ContactInformation contactInformation;
     private Location location;
     private AuthInformation authInformation;
+
+    public Person(String id, String name, String phone, Role role) {
+
+        if (isNull(id) || isNull(name) || isNull(phone) || isNull(role)){
+            //throw Exception
+        }
+        else {
+            this.id = id;
+            this.name = name;
+            this.contactInformation = new ContactInformation(phone);
+            this.authInformation = new AuthInformation(role);
+        }
+    }
 
     public String getId() {
         return id;
@@ -59,5 +73,10 @@ public class Person {
 
     public void setAuthInformation(AuthInformation authInformation) {
         this.authInformation = authInformation;
+    }
+
+    private boolean isNull(Object objectToEvaluate) {
+
+        return objectToEvaluate == null;
     }
 }

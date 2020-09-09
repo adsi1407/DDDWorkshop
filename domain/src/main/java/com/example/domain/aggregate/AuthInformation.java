@@ -1,5 +1,8 @@
-package com.example.domain.entity;
+package com.example.domain.aggregate;
 
+import com.example.domain.entity.Role;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class AuthInformation {
@@ -7,6 +10,17 @@ public class AuthInformation {
     private String userId;
     private String password;
     private List<Role> roles;
+
+    public AuthInformation(Role role) {
+
+        if (role != null) {
+            roles = new ArrayList<>();
+            roles.add(role);
+        }
+        else {
+            // throws exception
+        }
+    }
 
     public String getUserId() {
         return userId;

@@ -1,4 +1,6 @@
-package com.example.domain.entity;
+package com.example.domain.aggregate;
+
+import com.example.domain.entity.Coordinates;
 
 public class Location {
 
