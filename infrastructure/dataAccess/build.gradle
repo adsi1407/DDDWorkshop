@@ -27,4 +27,6 @@ dependencies {
 
     implementation project(":domain")
 
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+    annotationProcessor "com.google.dagger:hilt-android-compiler:2.28-alpha"
 }
